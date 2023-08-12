@@ -39,11 +39,13 @@ class ObjectWrapper {
   /**
    * 指定した値を持つkeyの配列を返却。該当のものがなければ空の配列を返却。
    */
+  //一旦これで良いですが、unknownやanyは全ての値を許容することになり、実質型定義の意味がなくなってしまうので使用を避けた方が良いということを頭に入れておいてください！
   findKeys(val: unknown): string[] {
     if (typeof val !== 'string') return [];
     return Object.keys(this._obj).filter(key => this._obj[key] === val);
   }
 }
+
 
 /**
  * check script
